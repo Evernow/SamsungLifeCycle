@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from itertools import chain
 from bs2json import bs2json
+import json
 r = requests.get("https://security.samsungmobile.com/workScope.smsb")
 soup=BeautifulSoup(r.text,'html.parser')
 tags = soup.find_all(class_="txt_section")
