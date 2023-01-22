@@ -17,7 +17,8 @@ for securitybranch in converter.convertAll(tags,join=True)[0]['div']:
         # print(securitybranch['strong']['text'])
         # print(devices)
         if 'Disclaimer' not in securitybranch['strong']['text']:
-            Device_Support[securitybranch['strong']['text']] = list(chain.from_iterable(devices))
+            devices = sorted([s.strip() for s in  list(chain.from_iterable(devices))])
+            Device_Support[securitybranch['strong']['text']] = devices
     except:
         pass
 import os
