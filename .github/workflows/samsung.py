@@ -26,5 +26,15 @@ if os.path.exists("SamsungReleases.json"):
   os.remove("SamsungReleases.json")
 with open('SamsungReleases.json', 'w') as fp:
     json.dump(Device_Support, fp, indent = 2)
+import waybackpy
+
+url = "https://security.samsungmobile.com/workScope.smsb" 
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0"
+
+
+wayback = waybackpy.Url(url, user_agent) 
+archive = wayback.save() 
+print(archive.archive_url) 
+
 
 print(Device_Support)
